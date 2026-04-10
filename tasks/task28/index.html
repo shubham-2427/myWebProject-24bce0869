@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>change paragraph</title>
+    <style>
+      button {
+        background-color: black;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="myPara">this is a simple page to know about javascript</p>
+    <button onclick="changeText()">Click Me</button>
+
+    <script>
+      function changeText() {
+        document.getElementById("myPara").innerHTML = "Welcome to JavaScript!";
+      }
+    </script>
+  </body>
+</html>

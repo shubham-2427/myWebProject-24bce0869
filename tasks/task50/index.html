@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Image Fade Effect</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      #box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 500px;
+        transition: opacity 0.3s;
+        border: 1px solid #ccc;
+        padding: 20px;
+        background-color: lightyellow;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #myImage {
+        width: 300px;
+        height: auto;
+        padding-left: 20px;
+        transition: opacity 0.3s;
+        cursor: pointer;
+      }
+
+      .para {
+        padding: 10px;
+        font-size: 13px;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="box">
+        <p class="para">
+          The still surface of the water reflects the soft colors of the sky,
+          creating a peaceful and quiet atmosphere. The scene beautifully
+          captures the resilience of nature, showing how the tree continues to
+          exist even in a challenging environment. The warm golden light falls
+          on the twisted trunk and branches, highlighting the rough texture of
+          the wood.
+        </p>
+        <img
+          id="myImage"
+          src="https://picsum.photos/id/1084/400/400"
+          alt="Nature Tree Image"
+        />
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#myImage").mouseenter(function () {
+          $(this).css("opacity", "0.5");
+        });
+
+        $("#myImage").mouseleave(function () {
+          $(this).css("opacity", "1");
+        });
+      });
+    </script>
+  </body>
+</html>

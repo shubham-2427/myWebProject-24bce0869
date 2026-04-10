@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Status Change</title>
+    <style>
+        button{
+            margin-top: 10px;
+            border: none;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;    
+        }
+        p{
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="statusText" style="color: gray;">
+        Status: Offline
+    </p>
+    <button onclick="goOnline()">Go Online</button>
+
+    <script>
+        function goOnline() {
+            var status = document.getElementById("statusText");
+
+            status.innerHTML = "Status: Online";
+
+            status.style.color = "green";
+        }
+    </script>
+
+</body>
+</html>

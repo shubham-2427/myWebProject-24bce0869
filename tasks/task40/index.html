@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Tooltip</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#product{
+    width: 300px;
+    cursor: pointer;
+}
+
+#tooltip{
+    position: absolute;
+    display: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Product Image</h2>
+
+<img src="headphone.jpeg"
+     id="product"
+     alt="Product Image">
+
+<div id="tooltip">
+    Price: Rs 29,999 <br>
+    Description: Bose Noise Cancelling Headphones.
+</div>
+
+<script>
+
+let img = document.getElementById("product");
+let tip = document.getElementById("tooltip");
+
+img.addEventListener("mouseover", function(){
+    tip.style.display = "block";
+});
+
+img.addEventListener("mousemove", function(event){
+    tip.style.left = event.clientX + 10 + "px";
+    tip.style.top = event.clientY + 10 + "px";
+});
+
+img.addEventListener("mouseout", function(){
+    tip.style.display = "none";
+});
+
+</script>
+
+</body>
+</html>

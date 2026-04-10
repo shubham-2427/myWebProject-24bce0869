@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Examination Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="text"], input[type="email"] {
+            width: 94%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0066cc;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Exam Registration</h2>
+
+    <form onsubmit="return validateForm()">
+
+        Student Name:
+        <input type="text" id="name">
+        <div id="nameError" class="error"></div>
+
+        Email:
+        <input type="email" id="email">
+        <div id="emailError" class="error"></div>
+
+        Gender:<br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+        <div id="genderError" class="error"></div>
+
+        Subjects Interested:<br>
+        <input type="checkbox" name="subject" value="Math"> Math
+        <input type="checkbox" name="subject" value="Science"> Science
+        <input type="checkbox" name="subject" value="English"> English
+        <div id="subjectError" class="error"></div>
+
+        <br>
+        <input type="checkbox" id="declaration">
+        I declare that the above information is correct.
+        <div id="declarationError" class="error"></div>
+
+        <br><br>
+        <button type="submit">Register</button>
+
+    </form>
+</div>
+
+<script>
+function validateForm() {
+
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var gender = document.getElementsByName("gender");
+    var subjects = document.getElementsByName("subject");
+    var declaration = document.getElementById("declaration").checked;
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("genderError").innerHTML = "";
+    document.getElementById("subjectError").innerHTML = "";
+    document.getElementById("declarationError").innerHTML = "";
+
+    var valid = true;
+
+    if (name === "") {
+        document.getElementById("nameError").innerHTML = "Name is required.";
+        valid = false;
+    }
+
+    if (email === "") {
+        document.getElementById("emailError").innerHTML = "Email is required.";
+        valid = false;
+    }
+
+    var genderSelected = false;
+    for (var i = 0; i < gender.length; i++) {
+        if (gender[i].checked) {
+            genderSelected = true;
+            break;
+        }
+    }
+
+    if (!genderSelected) {
+        document.getElementById("genderError").innerHTML = "Please select your gender.";
+        valid = false;
+    }
+
+    var subjectSelected = false;
+    for (var i = 0; i < subjects.length; i++) {
+        if (subjects[i].checked) {
+            subjectSelected = true;
+            break;
+        }
+    }
+
+    if (!subjectSelected) {
+        document.getElementById("subjectError").innerHTML = "Select at least one subject.";
+        valid = false;
+    }
+
+    if (!declaration) {
+        document.getElementById("declarationError").innerHTML = "You must accept the declaration.";
+        valid = false;
+    }
+
+    if (!valid) {
+        return false;
+    }
+
+    alert("Registration Successful!");
+    return true;
+}
+</script>
+</body>
+</html>

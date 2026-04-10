@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Registration</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 94%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            width: 94%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>University Registration</h2>
+
+        <form onsubmit="return validateForm()">
+            
+            Name:
+            <input type="text" id="name">
+
+            Email:
+            <input type="text" id="email">
+
+            Password:
+            <input type="password" id="password">
+
+            Confirm Password:
+            <input type="password" id="confirmPassword">
+
+            Age:
+            <input type="text" id="age">
+
+            <p id="errorMessage" class="error"></p>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+
+            var name = document.getElementById("name").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var age = document.getElementById("age").value.trim();
+
+            var errorMessage = document.getElementById("errorMessage");
+            errorMessage.innerHTML = "";
+
+            if (name === "" || email === "" || password === "" || confirmPassword === "" || age === "") {
+                errorMessage.innerHTML = "All fields are required.";
+                return false;
+            }
+
+            if (password.length < 8) {
+                errorMessage.innerHTML = "Password must be at least 8 characters long.";
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                errorMessage.innerHTML = "Passwords do not match.";
+                return false;
+            }
+
+            if (isNaN(age) || age < 18) {
+                errorMessage.innerHTML = "Age must be a number greater than or equal to 18.";
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

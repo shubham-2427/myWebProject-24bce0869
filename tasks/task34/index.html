@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Form</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 94%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        select{
+            width: 99%;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1e7e34;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Checkout Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        Full Name:
+        <input type="text" id="fullname">
+
+        Phone Number:
+        <input type="text" id="phone">
+
+        Delivery Address:
+        <textarea id="address"></textarea>
+
+        ZIP / Postal Code:
+        <input type="text" id="zip">
+
+        Payment Option:
+        <select id="payment">
+            <option value="">-- Select Payment Method --</option>
+            <option value="cod">Cash on Delivery</option>
+            <option value="card">Credit/Debit Card</option>
+            <option value="upi">UPI</option>
+        </select>
+        <p id="errorMessage" class="error"></p>
+        <input type="submit" value="Place Order">
+    </form>
+</div>
+
+<script>
+function validateForm() {
+
+    var phone = document.getElementById("phone").value.trim();
+    var zip = document.getElementById("zip").value.trim();
+    var payment = document.getElementById("payment").value;
+    var errorMessage = document.getElementById("errorMessage");
+
+    errorMessage.innerHTML = "";
+
+    var phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+        errorMessage.innerHTML = "Phone number must contain exactly 10 digits.";
+        return false;
+    }
+    var zipPattern = /^[0-9]{6}$/;
+    if (!zipPattern.test(zip)) {
+        errorMessage.innerHTML = "ZIP/Postal code must contain exactly 6 digits.";
+        return false;
+    }
+    if (payment === "") {
+        errorMessage.innerHTML = "Please select a payment option.";
+        return false;
+    }
+    alert("Order Placed Successfully!");
+    return true;
+}
+</script>
+</body>
+</html>

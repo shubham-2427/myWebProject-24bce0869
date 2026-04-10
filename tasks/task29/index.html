@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Greeting Page</title>
+    <style>
+      #output {
+        margin-top: 20px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #username {
+        padding: 10px;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="username" placeholder="Enter your name" />
+
+    <button onclick="showMessage()">Submit</button>
+
+    <div id="output"></div>
+
+    <script>
+      function showMessage() {
+        let name = document.getElementById("username").value;
+
+        document.getElementById("output").innerHTML =
+          "Hello " + name + ", Welcome!";
+      }
+    </script>
+  </body>
+</html>

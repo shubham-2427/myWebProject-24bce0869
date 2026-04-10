@@ -1,0 +1,524 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Portfolio | Page 2</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #38bdf8;
+        --surface: #ffffff;
+        --text: #000000;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "system-ui", sans-serif;
+      }
+
+      .navbar {
+        background: #fff;
+        border: 4px solid #000;
+        margin: 15px;
+        border-radius: 15px;
+        box-shadow: 8px 8px 0px #000;
+        height: 80px;
+      }
+      .nav-link {
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #000 !important;
+        padding: 10px 20px !important;
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .nav-link:not(.active):hover {
+        transform: translateY(-3px);
+      }
+      .nav-link.active {
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 8px;
+        box-shadow: 3px 3px 0px #000;
+      }
+
+      .hero-box {
+        background: white;
+        border: 4px solid #000;
+        padding: 2rem 1rem;
+        box-shadow: 8px 8px 0px #000;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      @media (min-width: 768px) {
+        .hero-box {
+          padding: 4rem;
+          box-shadow: 15px 15px 0px #000;
+        }
+      }
+
+      #heroSec {
+        min-height: calc(100vh - 130px);
+        padding: 2rem 0;
+      }
+
+      h1.display-1 {
+        font-size: clamp(3rem, 10vw, 6rem) !important;
+        word-wrap: break-word;
+      }
+
+      .hero-box p {
+        font-size: clamp(0.85rem, 3vw, 1.25rem);
+      }
+
+      /* Floating Help Button & Instructions */
+      .help-btn {
+        bottom: 25px;
+        left: 25px;
+        z-index: 1050;
+        box-shadow: 5px 5px 0px #000;
+        transition: 0.2s;
+        background-color: #fff7ad; /* standardizing yellow */
+        border-radius: 15px;
+        padding: 12px 25px;
+        font-weight: 800;
+      }
+      .help-btn:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0px #000;
+        background-color: #fff7ad;
+      }
+      .step-pill {
+        background: #000;
+        color: #fff;
+        padding: 2px 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        margin-right: 8px;
+      }
+
+      .modal-content {
+        border: 5px solid #000;
+        border-radius: 20px;
+        box-shadow: 12px 12px 0px #000;
+      }
+      .offcanvas {
+        border-left: 4px solid #000;
+        width: 420px !important;
+      }
+      .offcanvas-body {
+        padding-right: 20px !important;
+      }
+      #prev-task-btn:not(:disabled):hover,
+      #next-task-btn:not(:disabled):hover {
+        background-color: #000 !important;
+        color: #fff !important;
+      }
+      .btn-hover-pop {
+        transition: 0.2s;
+      }
+      .btn-hover-pop:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 5px 5px 0px #000;
+      }
+      .offcanvas {
+        border-left: 4px solid #000;
+      }
+      .list-group-item {
+        border: 3px solid #000 !important;
+        margin: 8px 15px;
+        border-radius: 10px !important;
+        font-weight: 800;
+      }
+      .list-group-item:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 5px 5px 0px #000;
+        background: var(--bg);
+      }
+
+      #task-viewer {
+        display: none;
+        padding: 20px;
+        height: 100vh;
+      }
+      .viewer-container {
+        background: white;
+        border: 4px solid #000;
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: calc(100% - 70px);
+        border-top: 4px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg px-4">
+      <a class="navbar-brand fw-black h3 m-0" href="index.html"
+        >TASK PORTFOLIO</a
+      >
+      <div class="ms-auto d-flex gap-2 align-items-center">
+        <a href="index.html" class="nav-link px-3">PAGE 1</a>
+        <a href="page2.html" class="nav-link active px-3">PAGE 2</a>
+        <a href="page3.html" class="nav-link px-3">PAGE 3</a>
+        <button
+          class="btn btn-dark fw-bold border-3 border-dark ms-2"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#taskDrawer"
+        >
+          TASKS 18-34 ↓
+        </button>
+        <button
+          class="btn btn-hover-pop bg-white text-dark fw-bold border-3 border-dark ms-2"
+          data-bs-toggle="modal"
+          data-bs-target="#projectInfoModal"
+        >
+          PROJECT INFO
+        </button>
+      </div>
+    </nav>
+
+    <section
+      class="container d-flex align-items-center justify-content-center"
+      id="heroSec"
+    >
+      <div class="hero-box text-center">
+        <h1 class="display-1 fw-black">VISUAL<br />SYSTEMS</h1>
+        <p class="fw-bold mt-3">CSS GRID // FLEXBOX // RESPONSIVE DESIGN</p>
+      </div>
+    </section>
+
+    <!-- Help Button -->
+    <button
+      class="help-btn btn border-3 border-dark position-fixed"
+      data-bs-toggle="modal"
+      data-bs-target="#guideModal"
+      title="How to Navigate"
+    >
+      GUIDE
+    </button>
+
+    <div class="modal fade" id="guideModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div
+          class="modal-content"
+          style="
+            border: 4px solid #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 8px 8px 0px #000;
+          "
+        >
+          <div
+            class="modal-header"
+            style="background: #fff7ad; border-bottom: 4px solid #000"
+          >
+            <h5 class="modal-title fw-black text-uppercase">
+              How to Navigate:
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <div class="d-flex flex-column gap-3 fw-bold">
+              <div>
+                <span class="step-pill">01</span> Choose a module (PAGE 1-3)
+                from the top navigation bar.
+              </div>
+              <div>
+                <span class="step-pill">02</span> Click the black
+                <b>TASKS</b> drop-down button to see the assignment list.
+              </div>
+              <div>
+                <span class="step-pill">03</span> Select an assignment (e.g.
+                <b>TASK 1</b>) to open the interactive live preview.
+              </div>
+              <div>
+                <span class="step-pill">04</span> Use <b>PREV</b>, <b>NEXT</b>,
+                or <b>CHOOSE TASK</b> to move between tasks without closing.
+              </div>
+              <div>
+                <span class="step-pill">05</span> Hit <b>CLOSE X</b> inside the
+                viewer to return to this dashboard.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="projectInfoModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div
+          class="modal-content"
+          style="
+            border: 4px solid #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 10px 10px 0px #000;
+          "
+        >
+          <div
+            class="modal-header border-bottom border-4 border-dark p-4 bg-white"
+          >
+            <div>
+              <h2
+                class="fw-black text-uppercase mb-0"
+                style="letter-spacing: -1.5px"
+              >
+                Project Info
+              </h2>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              style="opacity: 1"
+            ></button>
+          </div>
+
+          <div class="modal-body p-4 bg-white">
+            <div class="mb-4">
+              <label
+                class="d-block small fw-black text-uppercase text-muted mb-2"
+                >Student Submitter</label
+              >
+              <div
+                class="d-flex align-items-center p-3 border border-3 border-dark bg-light"
+                style="border-radius: 12px"
+              >
+                <div
+                  class="me-3 bg-dark text-white fw-black d-flex align-items-center justify-content-center"
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    font-size: 1.2rem;
+                    border-radius: 8px;
+                  "
+                >
+                  SR
+                </div>
+                <div>
+                  <h6 class="fw-black mb-0">SHUBHAM RAJPUT</h6>
+                  <small class="fw-bold text-muted">Reg No: 24BCE0869</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label
+                class="d-block small fw-black text-uppercase text-muted mb-2"
+                >Faculty Mentor</label
+              >
+              <div
+                class="p-3 border border-3 border-dark"
+                style="border-radius: 12px"
+              >
+                <span class="fw-bold h6 mb-0">Dr. V. Arulkumar</span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label
+                class="d-block small fw-black text-uppercase text-muted mb-2"
+                >Technical Blueprint</label
+              >
+              <div class="d-flex flex-wrap gap-2">
+                <span
+                  class="badge border border-2 border-dark text-dark bg-white fw-bold px-2 py-1"
+                  style="border-radius: 8px"
+                  >HTML5</span
+                >
+                <span
+                  class="badge border border-2 border-dark text-dark bg-white fw-bold px-2 py-1"
+                  style="border-radius: 8px"
+                  >CSS3 GRID</span
+                >
+                <span
+                  class="badge border border-2 border-dark text-dark bg-white fw-bold px-2 py-1"
+                  style="border-radius: 8px"
+                  >BOOTSTRAP 5.3</span
+                >
+                <span
+                  class="badge border border-2 border-dark text-dark bg-white fw-bold px-2 py-1"
+                  style="border-radius: 8px"
+                  >VANILLA JS</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="p-3 border border-3 border-dark"
+              style="background: #fff7ad; border-radius: 12px"
+            >
+              <h6 class="fw-black text-uppercase small mb-1">
+                About the Project
+              </h6>
+              <p class="small fw-bold mb-0" style="line-height: 1.4">
+                This is my final web programming portfolio! It's a custom-built
+                dashboard that brings together all 50 of my core course
+                assignments into one easy-to-navigate space. I designed and
+                coded everything from scratch using plain HTML, CSS Grid, and
+                Vanilla JS to really master my front-end fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-3 bg-dark text-white text-center">
+            <span
+              class="fw-bold small text-uppercase"
+              style="letter-spacing: 1px"
+              >WEB PROGRAMMING LAB PORTFOLIO</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="task-viewer">
+      <div class="viewer-container">
+        <div
+          class="p-3 d-flex justify-content-between align-items-center bg-white"
+        >
+          <span id="task-title" class="h5 fw-black mb-0"></span>
+          <div class="d-flex gap-2">
+            <button
+              onclick="prevTask()"
+              class="btn bg-white text-dark border-dark border-3 fw-bold"
+              id="prev-task-btn"
+            >
+              PREV &larr;
+            </button>
+            <button
+              onclick="nextTask()"
+              class="btn bg-white text-dark border-dark border-3 fw-bold"
+              id="next-task-btn"
+            >
+              NEXT &rarr;
+            </button>
+            <button
+              class="btn border-dark border-3 fw-bold text-dark"
+              style="background-color: #fff7ad"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#taskDrawer"
+            >
+              CHOOSE TASK &equiv;
+            </button>
+            <button
+              onclick="closeTask()"
+              class="btn btn-danger border-dark border-3 fw-bold"
+            >
+              CLOSE X
+            </button>
+          </div>
+        </div>
+        <iframe id="task-frame"></iframe>
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" id="taskDrawer">
+      <div class="offcanvas-header bg-dark text-white">
+        <h6 class="offcanvas-title fw-black">TASK 18 - TASK 34 CATALOG</h6>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="list-group" id="taskMenu"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const tasks = [
+        { num: 18, label: "National Park Blog" },
+        { num: 19, label: "Course Details CSE" },
+        { num: 20, label: "Login & Registration" },
+        { num: 21, label: "Flexbox Layout" },
+        { num: 22, label: "Online Store UI" },
+        { num: 23, label: "Contact Form" },
+        { num: 24, label: "Student Portfolio" },
+        { num: 25, label: "Minimal Login" },
+        { num: 26, label: "Sign Up Flow" },
+        { num: 27, label: "Contact Us v2" },
+        { num: 28, label: "JS Paragraph Modifier" },
+        { num: 29, label: "Greeting App" },
+        { num: 30, label: "Task 30 PDF", file: "24BCE0869-TASK30.pdf" },
+        { num: 31, label: "DOM Messaging" },
+        { num: 32, label: "Status Toggle" },
+        { num: 33, label: "Uni Registration" },
+        { num: 34, label: "Checkout Form" },
+      ];
+
+      const menu = document.getElementById("taskMenu");
+      tasks.forEach((t) => {
+        const item = document.createElement("button");
+        item.className = "list-group-item list-group-item-action";
+        item.innerHTML = `TASK ${t.num} // ${t.label}`;
+        item.onclick = () => loadTask(t);
+        menu.appendChild(item);
+      });
+
+      function loadTask(t) {
+        const file = t.file || "index.html";
+        document.getElementById("task-frame").src =
+          `tasks/task${t.num}/${file}`;
+        document.getElementById("task-title").innerText =
+          `VIEWING: TASK ${t.num}`;
+        document.getElementById("heroSec").classList.add("d-none");
+        document.querySelector(".navbar").style.display = "none";
+        document.querySelector(".help-btn").style.display = "none";
+        document.getElementById("task-viewer").style.display = "block";
+
+        let activeIdx = tasks.findIndex((x) => x.num === t.num);
+        document.getElementById("prev-task-btn").disabled = activeIdx <= 0;
+        document.getElementById("next-task-btn").disabled =
+          activeIdx >= tasks.length - 1;
+        window.currentTaskIndex = activeIdx;
+
+        bootstrap.Offcanvas.getInstance(
+          document.getElementById("taskDrawer"),
+        ).hide();
+      }
+
+      function closeTask() {
+        document.getElementById("heroSec").classList.remove("d-none");
+        document.querySelector(".navbar").style.display = "";
+        document.querySelector(".help-btn").style.display = "";
+        document.getElementById("task-viewer").style.display = "none";
+        document.getElementById("task-frame").src = "";
+      }
+
+      function prevTask() {
+        if (window.currentTaskIndex > 0) {
+          loadTask(tasks[window.currentTaskIndex - 1]);
+        }
+      }
+
+      function nextTask() {
+        if (window.currentTaskIndex < tasks.length - 1) {
+          loadTask(tasks[window.currentTaskIndex + 1]);
+        }
+      }
+    </script>
+  </body>
+</html>

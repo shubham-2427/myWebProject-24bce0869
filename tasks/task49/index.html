@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Task List</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      li {
+        cursor: pointer;
+        font-size: 18px;
+        margin: 8px 0;
+      }
+
+      button {
+        color: black;
+        background-color: white;
+        padding: 10px 20px;
+        margin-left: 40px;
+        border: 1px solid black;
+      }
+
+      .container {
+        display: inline-block;
+        height: 400px;
+        width: 600px;
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul id="taskList">
+        <li>Task One</li>
+        <li>Task Two</li>
+        <li>Task Three</li>
+      </ul>
+
+      <button id="addTask">Add Task</button>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#addTask").click(function () {
+          $("#taskList").append("<li>New Task</li>");
+          $("#taskList li:first").text("Updated");
+        });
+
+        $("#taskList").on("click", "li", function () {
+          $(this).toggleClass("completed");
+        });
+      });
+    </script>
+  </body>
+</html>

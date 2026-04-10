@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Gallery Z-Index</title>
+
+    <style>
+        .gallery {
+            position: relative;
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        .gallery img {
+            width: 250px;
+            position: absolute;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .img1 {
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .img2 {
+            top: 40px;
+            left: 80px;
+            z-index: 2;
+        }
+
+        .img3 {
+            top: 80px;
+            left: 160px;
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="gallery">
+    <img src="headphone.jpeg" class="img1">
+    <img src="speaker.jpg" class="img2">
+    <img src="watch.jpg" class="img3">
+</div>
+
+<script>
+    const images = document.querySelectorAll('img');
+
+    images.forEach((img, index) => {
+
+        img.addEventListener('click', function() {
+
+            images.forEach((el, i) => {
+                el.style.zIndex = i + 1;
+            });
+
+            this.style.zIndex = 10;
+
+        });
+
+    });
+</script>
+
+</body>
+</html>

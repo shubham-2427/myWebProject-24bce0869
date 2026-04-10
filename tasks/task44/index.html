@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Z-Index Scroll Testing</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: darkgrey;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            z-index: 100;
+        }
+
+        .box {
+            height: 400px;
+            margin-top: 80px;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            line-height: 400px;
+            position: relative;
+        }
+
+        .box1 {
+            background: lightgrey;
+            z-index: 1;
+        }
+
+        .box2 {
+            background: lightblue;
+            z-index: 2;
+        }
+
+        .box3 {
+            background: lightcoral;
+            z-index: 3;
+        }
+
+        .test-box {
+            background: lightgreen;
+            position: relative;
+            z-index: 50;
+            margin-bottom: 700px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="header">
+        Fixed Header (z-index: 100)
+    </div>
+
+    <div class="box box1">Div 1 (z-index: 1)</div>
+    <div class="box box2">Div 2 (z-index: 2)</div>
+    <div class="box box3">Div 3 (z-index: 3)</div>
+
+    <div class="box test-box">
+        Test Div (z-index: 50)
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image with Caption</title>
+    <style>
+        body{
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+            
+        }
+        .image-container {
+            position: relative;
+            width: 300px;
+        }
+
+        .image-container img {
+            width: 100%;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5); 
+            color: white;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="headphone.jpeg" alt="Headphones">
+        <div class="caption">High Quality Headphones</div>
+    </div>
+
+</body>
+</html>

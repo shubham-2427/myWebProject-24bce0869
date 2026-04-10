@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    margin-top: 100px;
+}
+
+input{
+    display: block;
+    margin: 15px auto;
+    padding: 10px;
+    width: 220px;
+    border: 2px solid gray;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus{
+    border: 2px solid blue;
+    background-color: #e6f2ff;
+}
+
+button{
+    padding: 10px 20px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Login Form</h2>
+
+<form id="loginForm">
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+
+let user = document.getElementById("username");
+let pass = document.getElementById("password");
+let form = document.getElementById("loginForm");
+
+user.addEventListener("keydown", function(event){
+    if(event.key === "Enter" && user.value !== "")
+    {
+        event.preventDefault();
+        pass.focus();
+    }
+});
+
+user.addEventListener("blur", function(){
+    if(user.value !== "")
+    {
+        pass.focus();
+    }
+});
+
+form.addEventListener("submit", function(event){
+    if(user.value === "")
+    {
+        event.preventDefault();
+        user.focus();
+    }
+    else if(pass.value === "")
+    {
+        event.preventDefault();
+        pass.focus();
+    }
+    else
+    {
+        alert("Login Successful!");
+    }
+});
+
+</script>
+
+</body>
+</html>

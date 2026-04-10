@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VTOP Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #3f99ff, #8ad4ff);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5096e5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #87b8ee;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>VTOP Login</h2>
+
+    <form onsubmit="return validateLogin()">
+
+        Username:
+        <input type="text" id="username">
+        <div id="userError" class="error"></div>
+
+        Password:
+        <input type="password" id="password">
+        <div id="passError" class="error"></div>
+
+        User Type:
+        <select id="usertype">
+            <option value="">-- Select User Type --</option>
+            <option value="Student">Student</option>
+            <option value="Employee">Employee</option>
+            <option value="Parent">Parent</option>
+        </select>
+        <div id="typeError" class="error"></div>
+
+        <button type="submit">Login</button>
+
+    </form>
+</div>
+
+<script>
+function validateLogin() {
+
+    var username = document.getElementById("username").value.trim();
+    var password = document.getElementById("password").value.trim();
+    var usertype = document.getElementById("usertype").value;
+
+    document.getElementById("userError").innerHTML = "";
+    document.getElementById("passError").innerHTML = "";
+    document.getElementById("typeError").innerHTML = "";
+
+    var valid = true;
+
+    if (username === "") {
+        document.getElementById("userError").innerHTML = "Username is required";
+        valid = false;
+    }
+
+    if (password === "") {
+        document.getElementById("passError").innerHTML = "Password is required";
+        valid = false;
+    }
+
+    if (usertype === "") {
+        document.getElementById("typeError").innerHTML = "Select user type";
+        valid = false;
+    }
+
+    if (!valid) {
+        return false;
+    }
+    if (username === "shubham" && password === "1234") {
+
+        localStorage.setItem("username", username);
+
+        window.location.href = "dashboard.html";
+
+        return false;
+    } 
+    else {
+        document.getElementById("passError").innerHTML = "Invalid username or password";
+        return false;
+    }
+}
+
+</script>
+
+</body>
+</html>

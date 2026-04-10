@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Show/Hide Paragraph</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+      }
+
+      #myPara {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: white;
+        border: 1px solid black;
+        color: black;
+        width: 400px;
+      }
+
+      button {
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: none;
+        border: 1px solid black;
+        color: black;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggleBtn">Show / Hide Paragraph</button>
+
+    <p id="myPara">
+      When the button is clicked, the paragraph will either appear or disappear
+      using jQuery. The program uses $(document).ready() to make sure the page
+      is fully loaded before executing the script. This makes the webpage
+      interactive and user-friendly.
+    </p>
+
+    <script>
+      $(document).ready(function () {
+        $("#toggleBtn").click(function () {
+          $("#myPara").toggle();
+        });
+      });
+    </script>
+  </body>
+</html>

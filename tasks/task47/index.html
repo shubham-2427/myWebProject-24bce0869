@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Simple jQuery Gallery</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 30px;
+      }
+
+      #mainImage {
+        width: 400px;
+        height: 250px;
+        border: 2px solid #000;
+        margin-bottom: 20px;
+        object-fit: cover;
+      }
+
+      .thumbnail img {
+        width: 100px;
+        height: 70px;
+        margin: 5px;
+        cursor: pointer;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Image Gallery</h2>
+
+    <!-- Main display image (bird) -->
+    <img
+      id="mainImage"
+      src="https://picsum.photos/id/577/400/250"
+      alt="Main Image"
+    />
+
+    <!-- Thumbnails -->
+    <div class="thumbnail">
+      <img src="https://picsum.photos/id/577/400/250" alt="Bird" />
+      <img src="https://picsum.photos/id/593/400/250" alt="Tiger" />
+      <img src="https://picsum.photos/id/582/400/250" alt="Animal" />
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".thumbnail img").click(function () {
+          var imageSource = $(this).attr("src");
+
+          $("#mainImage").fadeOut(300, function () {
+            $(this).attr("src", imageSource).fadeIn(300);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

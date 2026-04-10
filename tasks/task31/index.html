@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Show Message</title>
+    <style>
+      #messageBox {
+        margin-top: 20px;
+        font-size: 20px;
+        color: black;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="showMessage()">Show Message</button>
+
+    <div id="messageBox"></div>
+
+    <script>
+      function showMessage() {
+        document.getElementById("messageBox").innerHTML =
+          "Welcome to JavaScript!";
+      }
+    </script>
+  </body>
+</html>

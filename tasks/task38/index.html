@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input{
+            display: block;
+            margin: 10px auto;
+            padding: 8px;
+            width: 200px;
+        }
+        button{
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="regForm">
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="email" id="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button type="button" onclick="validateForm()">Submit</button>
+</form>
+
+<script>
+function validateForm()
+{
+    let user = document.getElementById("username");
+    let mail = document.getElementById("email");
+    let pass = document.getElementById("password");
+
+    if(user.value === "")
+    {
+        user.focus();
+        return;
+    }
+    else if(mail.value === "")
+    {
+        mail.focus();
+        return;
+    }
+    else if(pass.value === "")
+    {
+        pass.focus();
+        return;
+    }
+    else
+    {
+        alert("Registration Successful!");
+    }
+}
+</script>
+
+</body>
+</html>

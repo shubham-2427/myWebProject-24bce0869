@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    margin-top: 50px;
+}
+
+input{
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 220px;
+    border: 2px solid gray;
+    outline: none;
+}
+
+.valid{
+    border-color: green;
+}
+
+.invalid{
+    border-color: red;
+}
+
+#emailIcon img{
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+#error{
+    color: red;
+    font-size: 14px;
+}
+button {
+    padding: 8px 95px;
+    font-size: 16px;
+    cursor: pointer;
+    border: black solid 2px;
+    background-color: white;
+   
+
+}
+</style>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="regForm">
+
+<input type="text" id="email" placeholder="Enter Email">
+<span id="emailIcon"></span>
+
+<input type="password" id="password" placeholder="Enter Password">
+<p id="error"></p>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<script>
+
+let email = document.getElementById("email");
+let password = document.getElementById("password");
+let emailIcon = document.getElementById("emailIcon");
+let error = document.getElementById("error");
+let form = document.getElementById("regForm");
+
+let emailValid = false;
+let passValid = false;
+
+email.addEventListener("input", function(){
+
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(email.value.match(pattern)){
+        email.classList.add("valid");
+        email.classList.remove("invalid");
+        emailIcon.innerHTML = "<img src='green.png'>";
+        emailValid = true;
+    }
+    else{
+        email.classList.add("invalid");
+        email.classList.remove("valid");
+        emailIcon.innerHTML = "<img src='red.png'>";
+        emailValid = false;
+    }
+});
+
+password.addEventListener("input", function(){
+
+    let val = password.value;
+
+    if(val.length < 6){
+        error.innerText = "Password must be at least 6 characters";
+        passValid = false;
+    }
+    else if(!/[A-Z]/.test(val)){
+        error.innerText = "Include at least one uppercase letter";
+        passValid = false;
+    }
+    else if(!/[0-9]/.test(val)){
+        error.innerText = "Include at least one number";
+        passValid = false;
+    }
+    else{
+        error.innerText = "";
+        password.classList.add("valid");
+        password.classList.remove("invalid");
+        passValid = true;
+    }
+});
+
+form.addEventListener("submit", function(event){
+    if(!emailValid || !passValid){
+        event.preventDefault();
+        alert("Please fix errors before submitting");
+    }
+});
+
+</script>
+
+</body>
+</html>
