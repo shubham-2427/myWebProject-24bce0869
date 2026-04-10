@@ -11,6 +11,7 @@
         --bg: #38bdf8;
         --surface: #ffffff;
         --text: #000000;
+        --yellow: #fff7ad;
       }
       body {
         background: var(--bg);
@@ -18,7 +19,7 @@
         font-family: "system-ui", sans-serif;
       }
       .fw-black {
-        font-weight: 400 !important;
+        font-weight: 800 !important;
       }
 
       .navbar {
@@ -85,7 +86,7 @@
         z-index: 1050;
         box-shadow: 5px 5px 0px #000;
         transition: 0.2s;
-        background-color: #fff7ad; /* standardizing yellow */
+        background-color: var(--yellow); /* standardizing yellow */
         border-radius: 15px;
         padding: 12px 25px;
         font-weight: 800;
@@ -93,7 +94,7 @@
       .help-btn:hover {
         transform: translate(-3px, -3px);
         box-shadow: 8px 8px 0px #000;
-        background-color: #fff7ad;
+        background-color: var(--yellow);
       }
       .step-pill {
         background: #000;
@@ -160,6 +161,153 @@
         height: calc(100% - 70px);
         border-top: 4px solid #000;
       }
+
+      /* Dark Theme Styles */
+      [data-theme="dark"] {
+        --bg-dark: #121212;
+        --text-dark: #ffffff;
+        --yellow: #fff7ad;
+      }
+      [data-theme="dark"] body {
+        background: var(--bg-dark);
+        color: var(--text-dark);
+      }
+      [data-theme="dark"] .navbar {
+        background: #1e1e1e;
+        border-color: #fff;
+        box-shadow: 8px 8px 0px #fff;
+      }
+      [data-theme="dark"] .nav-link {
+        color: #fff !important;
+      }
+      [data-theme="dark"] .nav-link.active {
+        box-shadow: 3px 3px 0px #fff;
+        border-color: #fff;
+        background: var(--bg);
+        color: #fff !important;
+      }
+      [data-theme="dark"] .hero-box {
+        background: var(--bg);
+        border-color: #fff;
+        box-shadow: 8px 8px 0px #fff;
+      }
+      @media (min-width: 768px) {
+        [data-theme="dark"] .hero-box {
+          box-shadow: 15px 15px 0px #fff;
+        }
+      }
+      [data-theme="dark"] .help-btn {
+        background-color: #333;
+        color: #fff;
+        box-shadow: 5px 5px 0px #fff;
+        border-color: #fff !important;
+      }
+      [data-theme="dark"] button[data-bs-target="#taskDrawer"][style*="--yellow"],
+      [data-theme="dark"] div[style*="--yellow"]:not(.modal-header) {
+        background-color: var(--yellow) !important;
+        color: #000 !important;
+      }
+      [data-theme="dark"] div[style*="--yellow"]:not(.modal-header) * {
+        color: #000 !important;
+      }
+      [data-theme="dark"] .help-btn:hover {
+        box-shadow: 8px 8px 0px #fff;
+      }
+      [data-theme="dark"] .modal-content {
+        border-color: #fff !important;
+        box-shadow: 12px 12px 0px #fff !important;
+        background: #1e1e1e !important;
+        color: white !important;
+      }
+      [data-theme="dark"] .modal-header {
+        background: #333 !important;
+        border-bottom-color: #fff !important;
+        color: white !important;
+      }
+      [data-theme="dark"] .offcanvas {
+        background: #1e1e1e;
+        color: #fff;
+        border-left-color: #fff;
+      }
+      [data-theme="dark"] .offcanvas-header {
+        border-bottom: 2px solid #fff;
+      }
+      [data-theme="dark"] .btn-hover-pop:hover {
+        box-shadow: 5px 5px 0px #fff;
+      }
+      [data-theme="dark"] .list-group-item {
+        border-color: #fff !important;
+        background: #1e1e1e;
+        color: white;
+      }
+      [data-theme="dark"] .list-group-item:hover {
+        box-shadow: 5px 5px 0px #fff;
+        background: var(--bg);
+        color: #fff !important;
+      }
+      [data-theme="dark"] .viewer-container {
+        background: #1e1e1e;
+        border-color: #fff;
+      }
+      [data-theme="dark"] iframe {
+        border-top-color: #fff;
+      }
+      [data-theme="dark"] .border-dark {
+        border-color: #fff !important;
+      }
+      [data-theme="dark"] .bg-white {
+        background-color: #1e1e1e !important;
+        color: #fff !important;
+      }
+      [data-theme="dark"] .bg-light {
+        background-color: #333 !important;
+        color: #fff !important;
+      }
+      [data-theme="dark"] .text-dark {
+        color: #fff !important;
+      }
+      [data-theme="dark"] .btn-dark, [data-theme="dark"] .bg-dark {
+        background-color: #fff !important;
+        color: #000 !important;
+      }
+      [data-theme="dark"] .step-pill {
+        background: #fff;
+        color: #000;
+      }
+      [data-theme="dark"] .text-muted {
+        color: #aaa !important;
+      }
+
+      /* Theme Toggle Button */
+      .theme-btn {
+        bottom: 25px;
+        right: 25px;
+        z-index: 1050;
+        box-shadow: 5px 5px 0px #000;
+        transition: 0.2s;
+        background-color: #fff;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      .theme-btn:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0px #000;
+      }
+      [data-theme="dark"] .theme-btn {
+        box-shadow: 5px 5px 0px #fff;
+        border-color: #fff !important;
+        background-color: #222;
+        color: #fff;
+      }
+      [data-theme="dark"] .theme-btn:hover {
+        box-shadow: 8px 8px 0px #fff;
+      }
     </style>
   </head>
   <body>
@@ -208,6 +356,15 @@
       GUIDE
     </button>
 
+    <!-- Theme Toggle Button -->
+    <button
+      class="theme-btn btn border-3 border-dark position-fixed"
+      onclick="toggleTheme()"
+      title="Toggle Dark Mode"
+    >
+      🌙
+    </button>
+
     <div class="modal fade" id="guideModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div
@@ -221,7 +378,7 @@
         >
           <div
             class="modal-header"
-            style="background: #fff7ad; border-bottom: 4px solid #000"
+            style="background: var(--yellow); border-bottom: 4px solid #000"
           >
             <h5 class="modal-title fw-black text-uppercase">
               How to Navigate:
@@ -254,6 +411,10 @@
               <div>
                 <span class="step-pill">05</span> Hit <b>CLOSE X</b> inside the
                 viewer to return to this dashboard.
+              </div>
+              <div>
+                <span class="step-pill">06</span> Click the <b>🌙 / ☀️</b> icon
+                bottom-right to toggle Dark Mode.
               </div>
             </div>
           </div>
@@ -369,7 +530,7 @@
 
             <div
               class="p-3 border border-3 border-dark"
-              style="background: #fff7ad; border-radius: 12px"
+              style="background: var(--yellow); border-radius: 12px"
             >
               <h6 class="fw-black text-uppercase small mb-1">
                 About the Project
@@ -418,7 +579,7 @@
             </button>
             <button
               class="btn border-dark border-3 fw-bold text-dark"
-              style="background-color: #fff7ad"
+              style="background-color: var(--yellow)"
               data-bs-toggle="offcanvas"
               data-bs-target="#taskDrawer"
             >
@@ -490,6 +651,7 @@
         document.getElementById("heroSec").classList.add("d-none");
         document.querySelector(".navbar").style.display = "none";
         document.querySelector(".help-btn").style.display = "none";
+        document.querySelector(".theme-btn").style.display = "none";
         document.getElementById("task-viewer").style.display = "block";
 
         let activeIdx = tasks.findIndex((x) => x.num === t.num);
@@ -507,6 +669,7 @@
         document.getElementById("heroSec").classList.remove("d-none");
         document.querySelector(".navbar").style.display = "";
         document.querySelector(".help-btn").style.display = "";
+        document.querySelector(".theme-btn").style.display = "";
         document.getElementById("task-viewer").style.display = "none";
         document.getElementById("task-frame").src = "";
       }
@@ -521,6 +684,23 @@
         if (window.currentTaskIndex < tasks.length - 1) {
           loadTask(tasks[window.currentTaskIndex + 1]);
         }
+      }
+
+      function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        document.documentElement.setAttribute("data-bs-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        document.querySelector(".theme-btn").innerText = newTheme === "dark" ? "☀️" : "🌙";
+      }
+
+      // Load saved theme on startup
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+        document.querySelector(".theme-btn").innerText = "☀️";
       }
     </script>
   </body>
