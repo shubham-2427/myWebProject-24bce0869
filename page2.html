@@ -691,12 +691,12 @@
         const newTheme = currentTheme === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", newTheme);
         document.documentElement.setAttribute("data-bs-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
+        localStorage.setItem("portfolio_theme", newTheme);
         document.querySelector(".theme-btn").innerText = newTheme === "dark" ? "☀️" : "🌙";
       }
 
       // Load saved theme on startup
-      const savedTheme = localStorage.getItem("theme");
+      const savedTheme = localStorage.getItem("portfolio_theme");
       if (savedTheme === "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
         document.documentElement.setAttribute("data-bs-theme", "dark");
