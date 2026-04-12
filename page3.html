@@ -102,6 +102,14 @@
       background-color: var(--yellow);
     }
 
+    .help-btn:active,
+    .help-btn:focus,
+    .help-btn:focus-visible {
+      background-color: var(--yellow) !important;
+      border-color: #000 !important;
+      color: #000 !important;
+    }
+
     .step-pill {
       background: #000;
       color: #fff;
@@ -141,10 +149,6 @@
       box-shadow: 5px 5px 0px #000;
     }
 
-    .offcanvas {
-      border-left: 4px solid #000;
-    }
-
     .list-group-item {
       border: 3px solid #000 !important;
       margin: 8px 15px;
@@ -177,179 +181,12 @@
       height: calc(100% - 70px);
       border-top: 4px solid #000;
     }
-
-    /* Dark Theme Styles */
-    [data-theme="dark"] {
-      --bg-dark: #121212;
-      --text-dark: #ffffff;
-      --yellow: #665c00;
-    }
-
-    [data-theme="dark"] body {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
-
-    [data-theme="dark"] .navbar {
-      background: #1e1e1e;
-      border-color: #fff;
-      box-shadow: 8px 8px 0px #fff;
-    }
-
-    [data-theme="dark"] .nav-link {
-      color: #fff !important;
-    }
-
-    [data-theme="dark"] .nav-link.active {
-      box-shadow: 3px 3px 0px #fff;
-      border-color: #fff;
-      background: var(--bg);
-      color: #fff !important;
-    }
-
-    [data-theme="dark"] .hero-box {
-      background: #1e1e1e;
-      border-color: #fff;
-      box-shadow: 8px 8px 0px #fff;
-    }
-
-    @media (min-width: 768px) {
-      [data-theme="dark"] .hero-box {
-        box-shadow: 15px 15px 0px #fff;
-      }
-    }
-
-    [data-theme="dark"] .help-btn {
-      background-color: #333;
-      color: #fff;
-      box-shadow: 5px 5px 0px #fff;
-      border-color: #fff !important;
-    }
-
-    [data-theme="dark"] .help-btn:hover {
-      box-shadow: 8px 8px 0px #fff;
-    }
-
-    [data-theme="dark"] .modal-content {
-      border-color: #fff !important;
-      box-shadow: 12px 12px 0px #fff !important;
-      background: #1e1e1e !important;
-      color: white !important;
-    }
-
-    [data-theme="dark"] .modal-header {
-      background: #333 !important;
-      border-bottom-color: #fff !important;
-      color: white !important;
-    }
-
-    [data-theme="dark"] .offcanvas {
-      background: #1e1e1e;
-      color: #fff;
-      border-left-color: #fff;
-    }
-
-    [data-theme="dark"] .offcanvas-header {
-      border-bottom: 2px solid #fff;
-    }
-
-    [data-theme="dark"] .btn-hover-pop:hover {
-      box-shadow: 5px 5px 0px #fff;
-    }
-
-    [data-theme="dark"] .list-group-item {
-      border-color: #fff !important;
-      background: #1e1e1e;
-      color: white;
-    }
-
-    [data-theme="dark"] .list-group-item:hover {
-      box-shadow: 5px 5px 0px #fff;
-      background: var(--bg);
-      color: #fff !important;
-    }
-
-    [data-theme="dark"] .viewer-container {
-      background: #1e1e1e;
-      border-color: #fff;
-    }
-
-    [data-theme="dark"] iframe {
-      border-top-color: #fff;
-    }
-
-    [data-theme="dark"] .border-dark {
-      border-color: #fff !important;
-    }
-
-    [data-theme="dark"] .bg-white {
-      background-color: #1e1e1e !important;
-      color: #fff !important;
-    }
-
-    [data-theme="dark"] .bg-light {
-      background-color: #333 !important;
-      color: #fff !important;
-    }
-
-    [data-theme="dark"] .text-dark {
-      color: #fff !important;
-    }
-
-    [data-theme="dark"] .btn-dark,
-    [data-theme="dark"] .bg-dark {
-      background-color: #fff !important;
-      color: #000 !important;
-    }
-
-    [data-theme="dark"] .step-pill {
-      background: #fff;
-      color: #000;
-    }
-
-    [data-theme="dark"] .text-muted {
-      color: #aaa !important;
-    }
-
-    /* Theme Toggle Button */
-    .theme-btn {
-      bottom: 25px;
-      right: 25px;
-      z-index: 1050;
-      box-shadow: 5px 5px 0px #000;
-      transition: 0.2s;
-      background-color: #fff;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .theme-btn:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 8px 8px 0px #000;
-    }
-
-    [data-theme="dark"] .theme-btn {
-      box-shadow: 5px 5px 0px #fff;
-      border-color: #fff !important;
-      background-color: #222;
-      color: #fff;
-    }
-
-    [data-theme="dark"] .theme-btn:hover {
-      box-shadow: 8px 8px 0px #fff;
-    }
   </style>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg px-4">
-    <a class="navbar-brand fw-black h3 m-0" href="index.html">TASK PORTFOLIO</a>
+    <span class="navbar-brand fw-bolder h3 m-0">TASK PORTFOLIO</span>
     <div class="ms-auto d-flex gap-2 align-items-center">
       <a href="index.html" class="nav-link px-3">PAGE 1</a>
       <a href="page2.html" class="nav-link px-3">PAGE 2</a>
@@ -358,7 +195,7 @@
         data-bs-target="#taskDrawer">
         TASKS 35-50 ↓
       </button>
-      <button class="btn btn-hover-pop bg-white text-dark fw-bold border-3 border-dark ms-2" data-bs-toggle="modal"
+      <button class="btn btn-hover-pop bg-white text-dark fw-semibold border-3 border-dark ms-2" data-bs-toggle="modal"
         data-bs-target="#projectInfoModal">
         PROJECT INFO
       </button>
@@ -378,10 +215,6 @@
     GUIDE
   </button>
 
-  <!-- Theme Toggle Button -->
-  <button class="theme-btn btn border-3 border-dark position-fixed" onclick="toggleTheme()" title="Toggle Dark Mode">
-    🌙
-  </button>
 
   <div class="modal fade" id="guideModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -392,7 +225,7 @@
             box-shadow: 8px 8px 0px #000;
           ">
         <div class="modal-header" style="background: var(--yellow); border-bottom: 4px solid #000">
-          <h5 class="modal-title fw-black text-uppercase">
+          <h5 class="modal-title fw-bold text-uppercase">
             How to Navigate:
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -419,10 +252,7 @@
               <span class="step-pill">05</span> Hit <b>CLOSE X</b> inside the
               viewer to return to this dashboard.
             </div>
-            <div>
-              <span class="step-pill">06</span> Click the <b>🌙 / ☀️</b> icon
-              bottom-right to toggle Dark Mode.
-            </div>
+
           </div>
         </div>
       </div>
@@ -439,7 +269,7 @@
           ">
         <div class="modal-header border-bottom border-4 border-dark p-4 bg-white">
           <div>
-            <h2 class="fw-black text-uppercase mb-0" style="letter-spacing: -1.5px">
+            <h2 class="fw-semibold text-uppercase mb-0" style="letter-spacing: -1.5px">
               Project Info
             </h2>
           </div>
@@ -491,18 +321,17 @@
             <h6 class="fw-black text-uppercase small mb-1">
               About the Project
             </h6>
-            <p class="small fw-bold mb-0" style="line-height: 1.4">
+            <p class="small fw-normal mb-0" style="line-height: 1.4">
               This is my final web programming portfolio! It's a custom-built
               dashboard that brings together all 50 of my core course
-              assignments into one easy-to-navigate space. I designed and
-              coded everything from scratch using plain HTML, CSS Grid, and
-              Vanilla JS to really master my front-end fundamentals.
+              assignments into one easy-to-navigate space. It implemented using plain HTML, CSS Grid, and
+              Vanilla JS.
             </p>
           </div>
         </div>
 
         <div class="p-3 bg-dark text-white text-center">
-          <span class="fw-bold small text-uppercase" style="letter-spacing: 1px">WEB PROGRAMMING LAB PORTFOLIO</span>
+          <span class="fw-normal small text-uppercase" style="letter-spacing: 1px">WEB PROGRAMMING LAB PORTFOLIO</span>
         </div>
       </div>
     </div>
@@ -511,7 +340,7 @@
   <div id="task-viewer">
     <div class="viewer-container">
       <div class="p-3 d-flex justify-content-between align-items-center bg-white">
-        <span id="task-title" class="h5 fw-black mb-0"></span>
+        <span id="task-title" class="h5 fw-light mb-0"></span>
         <div class="d-flex gap-2">
           <button onclick="prevTask()" class="btn bg-white text-dark border-dark border-3 fw-bold" id="prev-task-btn">
             PREV &larr;
@@ -582,7 +411,6 @@
       document.getElementById("heroSec").classList.add("d-none");
       document.querySelector(".navbar").style.display = "none";
       document.querySelector(".help-btn").style.display = "none";
-      document.querySelector(".theme-btn").style.display = "none";
       document.getElementById("task-viewer").style.display = "block";
 
       let activeIdx = tasks.findIndex((x) => x.num === t.num);
@@ -600,7 +428,6 @@
       document.getElementById("heroSec").classList.remove("d-none");
       document.querySelector(".navbar").style.display = "";
       document.querySelector(".help-btn").style.display = "";
-      document.querySelector(".theme-btn").style.display = "";
       document.getElementById("task-viewer").style.display = "none";
       document.getElementById("task-frame").src = "";
     }
@@ -617,22 +444,6 @@
       }
     }
 
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", newTheme);
-      document.documentElement.setAttribute("data-bs-theme", newTheme);
-      localStorage.setItem("portfolio_theme", newTheme);
-      document.querySelector(".theme-btn").innerText = newTheme === "dark" ? "☀️" : "🌙";
-    }
-
-    // Load saved theme on startup
-    const savedTheme = localStorage.getItem("portfolio_theme");
-    if (savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-      document.documentElement.setAttribute("data-bs-theme", "dark");
-      document.querySelector(".theme-btn").innerText = "☀️";
-    }
   </script>
 </body>
 
